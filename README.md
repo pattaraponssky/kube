@@ -58,7 +58,7 @@
 
 - Start minikube
 
-
+![image](https://user-images.githubusercontent.com/113360594/226099435-b6c492ed-58eb-4693-81f3-92d4887a3557.png)
 
 ### Docker engine
 
