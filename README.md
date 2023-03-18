@@ -95,7 +95,7 @@
 - LoadBalancer
 
         minikube tunnel
-        
+
 ### 4. Install traefik proxy on Kubernetes
 
 - Install Traefik Resource Definitions
@@ -129,7 +129,7 @@
 
 #### Create secrete
 
-- create auth-secret set username and password 
+- create auth-secret set username and password (Run command on ubutu)
 
         htpasswd -nB user | tee auth-secret
 
@@ -137,8 +137,27 @@
 
         kubectl create secret generic -n traefik dashboard-auth-secret --from-file=users=auth-secret -o yaml --dry-run=client | tee dashboard-secret.yaml
 
-### Create yaml file
+#### Create yaml file
 
-## 5. Deploy
+### 5. Deploy
 
         kubectl apply -f . 
+
+- add 127.0.0.1 local to host file on your computer (เพิ่ม ip ในไฟล์ hosts บนคอมพิวเตอร์)
+
+        127.0.0.1 web.spcn11.local
+        127.0.0.1 traefik.spcn11.local
+
+## Result 
+
+ - web.spcn11.local 
+ 
+ - traefik.spcn11.local dashbpard
+
+ - minikube dashbpard
+
+### Ref
+
+- https://github.com/iamapinan/kubeplay-traefik
+- https://minikube.sigs.k8s.io/docs/start/
+- 
