@@ -76,7 +76,8 @@
 ![image](https://user-images.githubusercontent.com/113360594/226121702-acd6ad03-4bb8-4601-9b4c-0d5f9a21e9d4.png)
 
         minikube start
-
+        
+![image](https://user-images.githubusercontent.com/113360594/226128839-604e7ffd-2f34-43b0-8b0d-f622ea53c712.png)
 
 - Containers on docker
 
@@ -133,9 +134,18 @@
 
         htpasswd -nB user | tee auth-secret
 
+![image](https://user-images.githubusercontent.com/113360594/226128529-83c5971e-a916-4d09-b221-900d64820258.png)
+
 - Dry run to create a secret deployment
 
         kubectl create secret generic -n traefik dashboard-auth-secret --from-file=users=auth-secret -o yaml --dry-run=client | tee dashboard-secret.yaml
+     
+- Edit the users of the Traterfik-Dashboard.yaml file By taking the data from the dashboard-secret.yaml file
+
+![image](https://user-images.githubusercontent.com/113360594/226128672-ec7ce05d-2cac-4eb6-ba4c-510c1596a414.png)
+
+![image](https://user-images.githubusercontent.com/113360594/226128739-b8d1dbc3-d177-409d-97d9-0da27b0959e2.png)
+
 
 #### Create yaml file
 
@@ -151,13 +161,18 @@
 ## Result 
 
  - web.spcn11.local 
- 
+
+![image](https://user-images.githubusercontent.com/113360594/226128936-3f387985-84d7-4016-8ec0-9f020ce6bd30.png)
+
  - traefik.spcn11.local dashbpard
+ 
+![image](https://user-images.githubusercontent.com/113360594/226129002-92060ca1-1f51-49c0-ac04-07142f1d0727.png)
 
  - minikube dashbpard
+ - 
+![image](https://user-images.githubusercontent.com/113360594/226128896-5ea3bc03-c721-4e4e-8857-956547391ee3.png)
 
 ### Ref
 
 - https://github.com/iamapinan/kubeplay-traefik
 - https://minikube.sigs.k8s.io/docs/start/
-- 
