@@ -71,15 +71,15 @@
 
 - Start minikube,use this command (เริ่มใช้งานคลัสเตอร์)
 
-            minikube start --driver=docker
+        minikube start --driver=docker
 
 - Interact with your cluster (ตรวจสอบการทำงาน pod ที่ถูกสร้าง)
 
-            kubectl get po -A
+        kubectl get po -A
 
 - Check minikube dashboard (เปิดดูหน้า dashboard)
 
-            minikube dashboard
+        minikube dashboard
         
 ### 4. Install traefik proxy on Kubernetes
 
