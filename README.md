@@ -75,6 +75,9 @@
 
 ![image](https://user-images.githubusercontent.com/113360594/226121702-acd6ad03-4bb8-4601-9b4c-0d5f9a21e9d4.png)
 
+        minikube start
+
+
 - Containers on docker
 
 ![image](https://user-images.githubusercontent.com/113360594/226121735-7ce65e49-1fe8-48df-b812-3caa5c42ac28.png)
@@ -88,6 +91,10 @@
 - Check minikube dashboard (เปิดดูหน้า dashboard)
 
         minikube dashboard
+        
+- LoadBalancer
+
+        minikube tunnel
         
 ### 4. Install traefik proxy on Kubernetes
 
@@ -130,3 +137,8 @@
 
         kubectl create secret generic -n traefik dashboard-auth-secret --from-file=users=auth-secret -o yaml --dry-run=client | tee dashboard-secret.yaml
 
+### Create yaml file
+
+## 5. Deploy
+
+        kubectl apply -f . 
