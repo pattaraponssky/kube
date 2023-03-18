@@ -57,9 +57,17 @@
 ![image](https://user-images.githubusercontent.com/113360594/226096102-d5af97ab-0524-42fa-a336-5b3f0a1e4042.png)
 
 
+<<<<<<< HEAD
 ### 3. Docker engine
 
 - Install docker desktop (ติดตั้ง docker สำหรับการใช้งานคลัสเตอร์)
+=======
+![image](https://user-images.githubusercontent.com/113360594/226099435-b6c492ed-58eb-4693-81f3-92d4887a3557.png)
+
+### Docker engine
+
+- Install docker desktop
+>>>>>>> c3e76751396de921aaefb316d6022855deff2656
 
     - https://www.docker.com/products/docker-desktop/
 
@@ -102,7 +110,15 @@
 
 #### Create secrete
 
+- create auth-secret set username and password 
+
             htpasswd -nB user | tee auth-secret
+
             # New password:
             # Re-type new password:
             # Example output user:$2y$05$W4zCVrqGg8wKtIjOAU.gGu8MQC9k7sH4Wd1v238UfiVuGkf0xfDUu
+
+- Dry run to create a secret deployment
+
+            kubectl create secret generic -n traefik dashboard-auth-secret --from-file=users=auth-secret -o yaml --dry-run=client | tee dashboard-secret.yaml
+
