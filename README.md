@@ -17,9 +17,10 @@
 
             kubectl version --client
 - or
+
             kubectl version --client --output=yaml
 
--clean up the installation files
+- clean up the installation files
 
             del kubectl.exe kubectl.exe.sha256
 
@@ -29,15 +30,16 @@
 - install using Powershell
 
             New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
-Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
+            Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
 
 - Add minikube.exe to PATH run Powershell as Admin
 
             $oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
-if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
-  [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine) `
-}
+            if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
+            [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine) `
+            }
 
-- Test minikube
+- Test command minikube
+
 
 
