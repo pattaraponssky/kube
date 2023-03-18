@@ -6,11 +6,11 @@
 
 - installed, use this command
 
-            curl.exe -LO        "https://dl.k8s.io/release/v1.26.0/bin/windows/amd64/kubectl.exe"
+        curl.exe -LO        "https://dl.k8s.io/release/v1.26.0/bin/windows/amd64/kubectl.exe"
 
 - Validate binary, use this command
 
-            curl.exe -LO "https://dl.k8s.io/v1.26.0/bin/windows/amd64/kubectl.exe.sha256"
+        curl.exe -LO "https://dl.k8s.io/v1.26.0/bin/windows/amd64/kubectl.exe.sha256"
 
 - Append kubectl to PATH environment variable
 
@@ -21,14 +21,14 @@
 
 - Test kubectl, use this command for view of version 
 
-            kubectl version --client
+        kubectl version --client
 - or
 
-            kubectl version --client --output=yaml
+        kubectl version --client --output=yaml
 
 - clean up the installation files
 
-            del kubectl.exe kubectl.exe.sha256
+        del kubectl.exe kubectl.exe.sha256
 
 ### 2. Install minikube
 
@@ -38,8 +38,8 @@
 
 - install using Powershell
 
-            New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
-            Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
+        New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
+        Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
 
 - Add minikube.exe to PATH run Powershell as Admin
 
@@ -47,27 +47,25 @@
 
 - Use this command
 
-            $oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
-            if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
-            [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine) `
-            }
+        $oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
+        if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
+        [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine) `
+        }
 
 - Test command minikube
 
 ![image](https://user-images.githubusercontent.com/113360594/226096102-d5af97ab-0524-42fa-a336-5b3f0a1e4042.png)
 
 
-<<<<<<< HEAD
 ### 3. Docker engine
 
 - Install docker desktop (ติดตั้ง docker สำหรับการใช้งานคลัสเตอร์)
-=======
+
 ![image](https://user-images.githubusercontent.com/113360594/226099435-b6c492ed-58eb-4693-81f3-92d4887a3557.png)
 
 ### Docker engine
 
 - Install docker desktop
->>>>>>> c3e76751396de921aaefb316d6022855deff2656
 
     - https://www.docker.com/products/docker-desktop/
 
@@ -87,11 +85,11 @@
 
 - Install Traefik Resource Definitions
 
-            kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.9/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
+        kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.9/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
 
 - Install RBAC for Traefik
 
-            kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.9/docs/content/reference/dynamic-configuration/kubernetes-crd-rbac.yml
+        kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.9/docs/content/reference/dynamic-configuration/kubernetes-crd-rbac.yml
 
 - Installing Helm
 
@@ -99,26 +97,22 @@
 
 - Install Traefik Helmchart
 
-            helm repo add traefik https://traefik.github.io/charts 
-            helm repo update 
-            helm install traefik traefik/traefik 
+        helm repo add traefik https://traefik.github.io/charts 
+        helm repo update 
+        helm install traefik traefik/traefik 
 
 - Verify service is running (ตรวจสอบว่าบริการกำลังทำงานอยู่)
 
-            kubectl get svc -l app.kubernetes.io/name=traefik
-            kubectl get po -l app.kubernetes.io/name=traefik
+        kubectl get svc -l app.kubernetes.io/name=traefik
+        kubectl get po -l app.kubernetes.io/name=traefik
 
 #### Create secrete
 
 - create auth-secret set username and password 
 
-            htpasswd -nB user | tee auth-secret
-
-            # New password:
-            # Re-type new password:
-            # Example output user:$2y$05$W4zCVrqGg8wKtIjOAU.gGu8MQC9k7sH4Wd1v238UfiVuGkf0xfDUu
+        htpasswd -nB user | tee auth-secret
 
 - Dry run to create a secret deployment
 
-            kubectl create secret generic -n traefik dashboard-auth-secret --from-file=users=auth-secret -o yaml --dry-run=client | tee dashboard-secret.yaml
+        kubectl create secret generic -n traefik dashboard-auth-secret --from-file=users=auth-secret -o yaml --dry-run=client | tee dashboard-secret.yaml
 
