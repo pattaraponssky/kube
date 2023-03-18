@@ -169,7 +169,7 @@
 ![image](https://user-images.githubusercontent.com/113360594/226129002-92060ca1-1f51-49c0-ac04-07142f1d0727.png)
 
  - minikube dashbpard
- - 
+
 ![image](https://user-images.githubusercontent.com/113360594/226128896-5ea3bc03-c721-4e4e-8857-956547391ee3.png)
 
 ### Ref
