@@ -1,8 +1,9 @@
 # Kubernetes
-## Wakatime
+## Wakatime URL
 - https://wakatime.com/@spcn11/projects/sqqwqxezkv
-## Step
+## Step (ขั้นตอน)
 ### 1. Install kuectl
+
 - installed, use this command
 
             curl.exe -LO        "https://dl.k8s.io/release/v1.26.0/bin/windows/amd64/kubectl.exe"
@@ -30,7 +31,9 @@
             del kubectl.exe kubectl.exe.sha256
 
 ### 2. Install minikube
+
 - set spec minikube
+
 ![image](https://user-images.githubusercontent.com/113360594/226096076-a13d1523-7d76-4e84-9e2f-666719868c54.png)
 
 - install using Powershell
@@ -42,6 +45,7 @@
 
 ![image](https://user-images.githubusercontent.com/113360594/226096086-64f22d57-0133-48cf-92f2-b64dac2670b8.png)
 
+- Use this command
 
             $oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
             if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
@@ -49,7 +53,19 @@
             }
 
 - Test command minikube
+
 ![image](https://user-images.githubusercontent.com/113360594/226096102-d5af97ab-0524-42fa-a336-5b3f0a1e4042.png)
+
+- Start minikube
+
+
+
+### Docker engine
+
+- Install docker desktop
+
+    - https://www.docker.com/products/docker-desktop/
+
 
 
 
