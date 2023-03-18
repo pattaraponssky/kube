@@ -56,17 +56,53 @@
 
 ![image](https://user-images.githubusercontent.com/113360594/226096102-d5af97ab-0524-42fa-a336-5b3f0a1e4042.png)
 
-- Start minikube
 
+### 3. Docker engine
 
-
-### Docker engine
-
-- Install docker desktop
+- Install docker desktop (ติดตั้ง docker สำหรับการใช้งานคลัสเตอร์)
 
     - https://www.docker.com/products/docker-desktop/
 
+- Start minikube,use this command (เริ่มใช้งานคลัสเตอร์)
 
+            minikube start --driver=docker
 
+- Interact with your cluster (ตรวจสอบการทำงาน pod ที่ถูกสร้าง)
 
+            kubectl get po -A
 
+- Check minikube dashboard (เปิดดูหน้า dashboard)
+
+            minikube dashboard
+        
+### 4. Install traefik proxy on Kubernetes
+
+- Install Traefik Resource Definitions
+
+            kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.9/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
+
+- Install RBAC for Traefik
+
+            kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.9/docs/content/reference/dynamic-configuration/kubernetes-crd-rbac.yml
+
+- Installing Helm
+
+    - https://helm.sh/docs/intro/install/
+
+- Install Traefik Helmchart
+
+            helm repo add traefik https://traefik.github.io/charts 
+            helm repo update 
+            helm install traefik traefik/traefik 
+
+- Verify service is running (ตรวจสอบว่าบริการกำลังทำงานอยู่)
+
+            kubectl get svc -l app.kubernetes.io/name=traefik
+            kubectl get po -l app.kubernetes.io/name=traefik
+
+#### Create secrete
+
+            htpasswd -nB user | tee auth-secret
+            # New password:
+            # Re-type new password:
+            # Example output user:$2y$05$W4zCVrqGg8wKtIjOAU.gGu8MQC9k7sH4Wd1v238UfiVuGkf0xfDUu
