@@ -73,9 +73,17 @@
 
         minikube start --driver=docker
 
+![image](https://user-images.githubusercontent.com/113360594/226121702-acd6ad03-4bb8-4601-9b4c-0d5f9a21e9d4.png)
+
+- Containers on docker
+
+![image](https://user-images.githubusercontent.com/113360594/226121735-7ce65e49-1fe8-48df-b812-3caa5c42ac28.png)
+
 - Interact with your cluster (ตรวจสอบการทำงาน pod ที่ถูกสร้าง)
 
         kubectl get po -A
+
+![image](https://user-images.githubusercontent.com/113360594/226121709-7bf0256d-a003-4441-b0d4-43daec18bb23.png)
 
 - Check minikube dashboard (เปิดดูหน้า dashboard)
 
@@ -86,6 +94,8 @@
 - Install Traefik Resource Definitions
 
         kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.9/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
+        
+![image](https://user-images.githubusercontent.com/113360594/226121787-94da0521-dc83-48b9-9568-6a06065674ec.png)
 
 - Install RBAC for Traefik
 
@@ -100,11 +110,15 @@
         helm repo add traefik https://traefik.github.io/charts 
         helm repo update 
         helm install traefik traefik/traefik 
+        
+![image](https://user-images.githubusercontent.com/113360594/226121874-2b6a251a-0dbe-4e8e-a5df-eefa2ad10445.png)
 
 - Verify service is running (ตรวจสอบว่าบริการกำลังทำงานอยู่)
 
         kubectl get svc -l app.kubernetes.io/name=traefik
         kubectl get po -l app.kubernetes.io/name=traefik
+        
+![image](https://user-images.githubusercontent.com/113360594/226121892-fff8526b-ce6d-47ac-ad18-b1ef68062aa8.png)
 
 #### Create secrete
 
