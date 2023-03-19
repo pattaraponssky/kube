@@ -61,12 +61,6 @@
 
 - Install docker desktop (ติดตั้ง docker สำหรับการใช้งานคลัสเตอร์)
 
-![image](https://user-images.githubusercontent.com/113360594/226099435-b6c492ed-58eb-4693-81f3-92d4887a3557.png)
-
-### Docker engine
-
-- Install docker desktop
-
     - https://www.docker.com/products/docker-desktop/
 
 - Start minikube,use this command (เริ่มใช้งานคลัสเตอร์)
