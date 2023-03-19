@@ -2,7 +2,7 @@
 ## Wakatime URL
 - https://wakatime.com/@spcn11/projects/sqqwqxezkv
 ## Step (ขั้นตอน)
-### 1. Install kuectl
+### 1. Install kubectl
 
 - installed, use this command
 
